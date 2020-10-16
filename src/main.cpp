@@ -32,8 +32,8 @@ int main()
 
 	for (int indexI{50}; indexI <= 500; indexI += 50)
 	{   
-        int bubble_values[50];
-       	int merge_values[50];
+        int bubble_values[50]{};
+       	int merge_values[50]{};
         // int selection_values[50];
 
         int bubble_sum{0};
@@ -100,7 +100,7 @@ int main()
 			std::cout << "Tamanho: " << indexI  << " Teste: " <<  indexJ << std::endl;
 		}
 		// Média dos tempos
-		for (int indexJ{0}; indexJ < 100; indexJ++)
+		for (int indexJ{0}; indexJ < 50; indexJ++)
 		{
 			bubble_sum += bubble_values[indexJ];
 			merge_sum += merge_values[indexJ];
