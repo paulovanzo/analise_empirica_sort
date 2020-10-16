@@ -36,13 +36,7 @@ int main()
        	int merge_values[50]{};
         // int selection_values[50];
 
-        int bubble_sum{0};
-        int merge_sum{0};
-        // int selection_sum{0};
-
-        int bubble_average{0};
-        int merge_average{0};
-        // int selection_average{0};
+		long double bubble_sum{0}, merge_sum{0}, bubble_average{0}, merge_average{0};
 
 		std::vector<int> list; //Inicialização do vector
         
