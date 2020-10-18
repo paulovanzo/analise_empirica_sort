@@ -30,7 +30,7 @@ int main()
 
     std::string v;
 
-	for (int indexI{50}; indexI <= 500; indexI += 50)
+	for (int indexI{10}; indexI <= 500; indexI += 10)
 	{   
         int bubble_values[50]{};
        	int merge_values[50]{};

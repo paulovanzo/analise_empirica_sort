@@ -10,7 +10,7 @@ void generate(){
 
     srand(time(NULL));
 
-    for (int tam = 50; tam < 500; tam+=50)
+    for (int tam = 10; tam < 500; tam+=10)
     {
       for (int k = 0; k < 50; ++k)
       {
@@ -19,7 +19,7 @@ void generate(){
           arquivo << 1+rand()%tam << " ";
         }
         arquivo << "\n";
-	  }
+	    }
     }
 
 	arquivo.close();
