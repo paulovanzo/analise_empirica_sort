@@ -11,7 +11,6 @@
 
 int main()
 {
-
 	generate();
 
 	std::ifstream vectors;
@@ -24,9 +23,6 @@ int main()
 
     output_bubble.open("../output_bubble.txt");
     output_merge.open("../output_merge.txt");
-    // output_selection.open("../output_selection.txt");
-
-    //O que nosso algoritmo vai buscar
 
     std::string v;
 
@@ -34,20 +30,16 @@ int main()
 	{   
         int bubble_values[50];
        	int merge_values[50];
-        // int selection_values[50];
 
         int bubble_sum{0};
         int merge_sum{0};
-        // int selection_sum{0};
 
         int bubble_average{0};
         int merge_average{0};
-        // int selection_average{0};
 
 		std::vector<int> list; //Inicialização do vector
         
-		for (int indexJ{0}; indexJ < 50; indexJ++)
-		{
+		for (int indexJ{0}; indexJ < 50; indexJ++){
 			std::stringstream stream(v);
 
 			getline(vectors,v); // Pega cada linha
@@ -62,7 +54,6 @@ int main()
 
 			std::vector<int> listcp1 = list;
 			std::vector<int> listcp2 = list;
-			// std::vector<int> listcp3 = list;
 			
 			//Tempo de execução do bubble sort
 			auto start_time = chrono::steady_clock::now();
@@ -74,19 +65,6 @@ int main()
 
 			bubble_values[indexJ] = chrono::duration<long double, milli>(difference).count();
 
-			//Tempo de execução do selection sort
-			/*
-			start_time = chrono::steady_clock::now();
-
-			selection( listcp3 );
-
-			end_time = chrono::steady_clock::now();
-			difference = end_time - start_time;
-
-			selection_values[indexJ] = chrono::duration<long double, milli>(difference).count();
-
-			*/
-
             //Tempo de execução do merge sort
 			start_time = chrono::steady_clock::now();
 
@@ -97,32 +75,27 @@ int main()
 
 			merge_values[indexJ] = chrono::duration<long double, milli>(difference).count();
 
-			std::cout << "Tamanho: " << indexI  << " Teste: " <<  indexJ << std::endl;
+			// std::cout << "Tamanho: " << indexI  << " Teste: " <<  indexJ << std::endl;
 		}
+
 		// Média dos tempos
-		for (int indexJ{0}; indexJ < 100; indexJ++)
-		{
+		for (int indexJ{0}; indexJ < 100; indexJ++){
 			bubble_sum += bubble_values[indexJ];
 			merge_sum += merge_values[indexJ];
-            // selection_sum += selection_values[indexJ];
 		}
 
 		bubble_average = bubble_sum / 50;
 		merge_average = merge_sum / 50;
-        // selection_average = selection_sum / 50;
 
 		//Imprimindo as médias nos arquivos de saída
 		output_bubble << indexI << " " << bubble_average << endl;
 		output_merge << indexI << " " << merge_average << endl;
-        // output_selection << indexI << " " << selection_average << endl;
-
 	}
 
 	//Fechando as instancias arquivos de saida
 	vectors.close();
 	output_bubble.close();
 	output_merge.close();
-    // output_selection.close();
 
 	return 0;
 }
